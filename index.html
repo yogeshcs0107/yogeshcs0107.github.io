@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yogesh Srivastava | Technical Manager & UI Specialist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8f8f8; color: #24292e; max-width: 800px; margin: 40px auto; padding: 24px; border-radius: 12px; box-shadow: 0 2px 10px #ddd;}
+    h1, h2, h3 { color: #0366d6; }
+    .stats, .profile, .section { margin-bottom: 2em; }
+    .profile-pic { width: 110px; border-radius: 50%; border: 3px solid #0366d6; }
+    .links a { margin-right: 12px; }
+    .contrib-graph { background: white; padding: 1em; border-radius: 8px; }
+    small { color: #888; }
+    .repos { list-style: none; padding: 0; }
+    .repos li { margin-bottom: 8px; }
+    .repos a { color: #0366d6; text-decoration: none; }
+    .repos a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="profile">
+    <img id="avatar" class="profile-pic" src="https://avatars.githubusercontent.com/u/your_github_id" alt="Profile Picture"/>
+    <h1 id="name">Yogesh Srivastava</h1>
+    <p>Technical Manager @ Accolite | Full-stack Developer | UI Specialist</p>
+    <div class="links">
+      <a href="mailto:yogeshcs0107@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/userinterfacedeveloper" target="_blank">LinkedIn</a>
+      <a href="https://github.com/yogeshcs0107" target="_blank">GitHub</a>
+    </div>
+    <small id="bio"></small>
+  </div>
+  <div class="section">
+    <h2>Resume Walkthrough</h2>
+    <ul>
+      <li><b>Technical Manager, Accolite</b> (Jan 2025 – Present, Hyderabad)</li>
+      <li><b>Associate Technical Delivery Manager, Accolite</b> (Jul 2022 – Dec 2024, Hyderabad)</li>
+      <li><b>System Analyst, ValueLabs</b> (Sep 2019 – Jul 2022, Hyderabad)</li>
+      <li><b>Associate IT Consultant, ITC Infotech</b> (Nov 2017 – Sep 2019, Gurgaon)</li>
+      <li><b>Frontend Developer, Xebia Group</b> (Jul 2016 – Nov 2017, Gurgaon)</li>
+      <li><b>Frontend Developer, Jaarvis</b> (Jun 2015 – May 2016, Gurgaon)</li>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>Skills</h2>
+    <p>React JS, Vue JS, Backbone JS, AngularJS, jQuery, User Interface Design, DOM Manipulation, React Native, Databases, Cross-browser Compatibility, Team Leadership, Project Delivery</p>
+  </div>
+  <div class="section">
+    <h2>Certifications</h2>
+    <ul>
+      <li>Javascript</li>
+      <li>The Coding Interview Bootcamp: Algorithms and Data Structures</li>
+    </ul>
+  </div>
+  <div class="section stats">
+    <h2>GitHub Stats</h2>
+    <img src="https://github-readme-stats.vercel.app/api?username=yogeshcs0107&show_icons=true&theme=default" alt="GitHub Stats"/>
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yogeshcs0107&layout=compact" alt="Top Languages"/>
+  </div>
+  <div class="section contrib-graph">
+    <h2>GitHub Contributions</h2>
+    <img src="https://ghchart.rshah.org/yogeshcs0107" alt="GitHub Contributions"/>
+  </div>
+  <div class="section">
+    <h2>Featured Repositories</h2>
+    <ul class="repos" id="repos"></ul>
+  </div>
+  <div class="section">
+    <h2>Fun Facts</h2>
+    <ul>
+      <li>Passionate about building scalable UIs and cross-functional team collaboration</li>
+      <li>Always exploring new technologies and best practices in front-end development</li>
+    </ul>
+  </div>
+  <script>
+    // Fetch GitHub profile info
+    fetch('https://api.github.com/users/yogeshcs0107')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('avatar').src = data.avatar_url;
+        document.getElementById('name').textContent = data.name || "Yogesh Srivastava";
+        document.getElementById('bio').textContent = data.bio || "";
+      });
+
+    // Fetch pinned repositories (use GitHub API or public pin tools)
+    fetch('https://api.github.com/users/yogeshcs0107/repos?per_page=6&sort=updated')
+      .then(res => res.json())
+      .then(repos => {
+        const list = document.getElementById('repos');
+        repos.slice(0, 6).forEach(repo => {
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a> &mdash; <small>${repo.description || ""}</small>`;
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
