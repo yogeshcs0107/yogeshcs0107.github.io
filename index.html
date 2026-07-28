@@ -2,97 +2,286 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Yogesh Srivastava | Technical Manager & UI Specialist</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yogesh Srivastava | Technical Manager & Full-Stack Leader</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8f8f8; color: #24292e; max-width: 800px; margin: 40px auto; padding: 24px; border-radius: 12px; box-shadow: 0 2px 10px #ddd;}
-    h1, h2, h3 { color: #0366d6; }
-    .stats, .profile, .section { margin-bottom: 2em; }
-    .profile-pic { width: 110px; border-radius: 50%; border: 3px solid #0366d6; }
-    .links a { margin-right: 12px; }
-    .contrib-graph { background: white; padding: 1em; border-radius: 8px; }
-    small { color: #888; }
-    .repos { list-style: none; padding: 0; }
-    .repos li { margin-bottom: 8px; }
-    .repos a { color: #0366d6; text-decoration: none; }
-    .repos a:hover { text-decoration: underline; }
+    :root {
+      --primary-color: #0f172a;
+      --accent-color: #2563eb;
+      --text-muted: #64748b;
+      --bg-light: #f8fafc;
+    }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: #334155;
+      background-color: var(--bg-light);
+    }
+    .hero-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      padding: 4rem 0;
+    }
+    .card {
+      border: none;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      border-radius: 0.75rem;
+    }
+    .badge-tech {
+      background-color: #e0e7ff;
+      color: #3730a3;
+      font-weight: 500;
+      margin-right: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-item {
+      border-left: 2px solid #e2e8f0;
+      padding-left: 1.5rem;
+      position: relative;
+      padding-bottom: 2rem;
+    }
+    .timeline-item::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      position: absolute;
+      left: -7px;
+      top: 4px;
+    }
   </style>
 </head>
 <body>
-  <div class="profile">
-    <img id="avatar" class="profile-pic" src="https://avatars.githubusercontent.com/u/your_github_id" alt="Profile Picture"/>
-    <h1 id="name">Yogesh Srivastava</h1>
-    <p>Technical Manager @ Accolite | Full-stack Developer | UI Specialist</p>
-    <div class="links">
-      <a href="mailto:yogeshcs0107@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/userinterfacedeveloper" target="_blank">LinkedIn</a>
-      <a href="https://github.com/yogeshcs0107" target="_blank">GitHub</a>
-    </div>
-    <small id="bio"></small>
-  </div>
-  <div class="section">
-    <h2>Resume Walkthrough</h2>
-    <ul>
-      <li><b>Technical Manager, Accolite</b> (Jan 2025 – Present, Hyderabad)</li>
-      <li><b>Associate Technical Delivery Manager, Accolite</b> (Jul 2022 – Dec 2024, Hyderabad)</li>
-      <li><b>System Analyst, ValueLabs</b> (Sep 2019 – Jul 2022, Hyderabad)</li>
-      <li><b>Associate IT Consultant, ITC Infotech</b> (Nov 2017 – Sep 2019, Gurgaon)</li>
-      <li><b>Frontend Developer, Xebia Group</b> (Jul 2016 – Nov 2017, Gurgaon)</li>
-      <li><b>Frontend Developer, Jaarvis</b> (Jun 2015 – May 2016, Gurgaon)</li>
-    </ul>
-  </div>
-  <div class="section">
-    <h2>Skills</h2>
-    <p>React JS, Vue JS, Backbone JS, AngularJS, jQuery, User Interface Design, DOM Manipulation, React Native, Databases, Cross-browser Compatibility, Team Leadership, Project Delivery</p>
-  </div>
-  <div class="section">
-    <h2>Certifications</h2>
-    <ul>
-      <li>Javascript</li>
-      <li>The Coding Interview Bootcamp: Algorithms and Data Structures</li>
-    </ul>
-  </div>
-  <div class="section stats">
-    <h2>GitHub Stats</h2>
-    <img src="https://github-readme-stats.vercel.app/api?username=yogeshcs0107&show_icons=true&theme=default" alt="GitHub Stats"/>
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yogeshcs0107&layout=compact" alt="Top Languages"/>
-  </div>
-  <div class="section contrib-graph">
-    <h2>GitHub Contributions</h2>
-    <img src="https://ghchart.rshah.org/yogeshcs0107" alt="GitHub Contributions"/>
-  </div>
-  <div class="section">
-    <h2>Featured Repositories</h2>
-    <ul class="repos" id="repos"></ul>
-  </div>
-  <div class="section">
-    <h2>Fun Facts</h2>
-    <ul>
-      <li>Passionate about building scalable UIs and cross-functional team collaboration</li>
-      <li>Always exploring new technologies and best practices in front-end development</li>
-    </ul>
-  </div>
-  <script>
-    // Fetch GitHub profile info
-    fetch('https://api.github.com/users/yogeshcs0107')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('avatar').src = data.avatar_url;
-        document.getElementById('name').textContent = data.name || "Yogesh Srivastava";
-        document.getElementById('bio').textContent = data.bio || "";
-      });
 
-    // Fetch pinned repositories (use GitHub API or public pin tools)
-    fetch('https://api.github.com/users/yogeshcs0107/repos?per_page=6&sort=updated')
-      .then(res => res.json())
-      .then(repos => {
-        const list = document.getElementById('repos');
-        repos.slice(0, 6).forEach(repo => {
-          const li = document.createElement('li');
-          li.innerHTML = `<a href="${repo.html_url}" target="_blank">${repo.name}</a> &mdash; <small>${repo.description || ""}</small>`;
-          list.appendChild(li);
-        });
-      });
-  </script>
+  <!-- Hero Header -->
+  <header class="hero-section">
+    <div class="container text-center text-md-start">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <h1 class="display-5 fw-bold mb-2">Yogesh Srivastava</h1>
+          <p class="lead text-light mb-3">Technical Manager | Full-Stack Engineering Leader | Software Architecture & Delivery</p>
+          <p class="text-white-50"><i class="fas fa-map-marker-alt me-2"></i>Hyderabad, India (Open to Relocation to Europe / Remote)</p>
+          <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-md-start mt-3">
+            <a href="mailto:yogeshcs0107@gmail.com" class="btn btn-outline-light btn-sm"><i class="fas fa-envelope me-1"></i> Email</a>
+            <a href="https://www.linkedin.com/in/userinterfacedeveloper" target="_blank" class="btn btn-outline-light btn-sm"><i class="fab fa-linkedin me-1"></i> LinkedIn</a>
+            <a href="https://yogeshcs0107.github.io/" target="_blank" class="btn btn-outline-light btn-sm"><i class="fab fa-github me-1"></i> GitHub</a>
+            <a href="https://yogesh-srivastava-9096agf.gamma.site/" target="_blank" class="btn btn-outline-light btn-sm"><i class="fas fa-globe me-1"></i> Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    
+    <!-- Executive Summary -->
+    <section class="mb-5">
+      <div class="card p-4">
+        <h3 class="fw-bold mb-3"><i class="fas fa-user-tie text-primary me-2"></i>Executive Summary</h3>
+        <p class="mb-0">
+          Technical Manager and full-stack engineering leader with over 10 years of experience delivering secure, scalable enterprise platforms and 3+ years directing engineering teams and technical delivery. Combines architectural ownership with hands-on expertise in <strong>React, Next.js, Node.js, TypeScript, GraphQL, Java Spring Boot</strong>, and <strong>AI-enabled systems</strong>. Proven track record in guiding distributed teams of up to 16 engineers, boosting delivery velocity by 20%, and improving SDLC efficiency by 80%. Brings extensive cross-border experience with US stakeholders, onsite assignments, and globally distributed product teams.
+        </p>
+      </div>
+    </section>
+
+    <!-- Key Metrics / Achievements -->
+    <section class="mb-5">
+      <div class="row g-3">
+        <div class="col-md-3">
+          <div class="card p-3 text-center h-100">
+            <h2 class="text-primary fw-bold">10+</h2>
+            <p class="text-muted mb-0">Years Tech Experience</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 text-center h-100">
+            <h2 class="text-primary fw-bold">3,000+</h2>
+            <p class="text-muted mb-0">Retail POS Stores Deployed</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 text-center h-100">
+            <h2 class="text-primary fw-bold">+20%</h2>
+            <p class="text-muted mb-0">Delivery Velocity Boost</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3 text-center h-100">
+            <h2 class="text-primary fw-bold">100%</h2>
+            <p class="text-muted mb-0">TDD Test Coverage Achieved</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Core Capabilities -->
+    <section class="mb-5">
+      <div class="card p-4">
+        <h3 class="fw-bold mb-4"><i class="fas fa-cogs text-primary me-2"></i>Technical Skills & Expertise</h3>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <h6 class="fw-bold">Modern Full-Stack</h6>
+            <div>
+              <span class="badge badge-tech">React</span>
+              <span class="badge badge-tech">Next.js</span>
+              <span class="badge badge-tech">Node.js</span>
+              <span class="badge badge-tech">TypeScript</span>
+              <span class="badge badge-tech">GraphQL</span>
+              <span class="badge badge-tech">Java Spring Boot</span>
+              <span class="badge badge-tech">Express.js</span>
+              <span class="badge badge-tech">HTML5/CSS3</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h6 class="fw-bold">AI & Intelligent Automation</h6>
+            <div>
+              <span class="badge badge-tech">GPT-5</span>
+              <span class="badge badge-tech">Multi-Agent Orchestration</span>
+              <span class="badge badge-tech">RAG / Knowledge Bases</span>
+              <span class="badge badge-tech">Anthropic Claude</span>
+              <span class="badge badge-tech">Claude Code</span>
+              <span class="badge badge-tech">Cursor AI</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h6 class="fw-bold">Cloud, DevOps & Observability</h6>
+            <div>
+              <span class="badge badge-tech">AWS</span>
+              <span class="badge badge-tech">Jenkins</span>
+              <span class="badge badge-tech">GitLab CI/CD</span>
+              <span class="badge badge-tech">Bitbucket</span>
+              <span class="badge badge-tech">Splunk</span>
+              <span class="badge badge-tech">Grafana</span>
+              <span class="badge badge-tech">Jira</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h6 class="fw-bold">Databases & Testing</h6>
+            <div>
+              <span class="badge badge-tech">PostgreSQL</span>
+              <span class="badge badge-tech">MySQL</span>
+              <span class="badge badge-tech">MongoDB</span>
+              <span class="badge badge-tech">MS SQL Server</span>
+              <span class="badge badge-tech">TDD</span>
+              <span class="badge badge-tech">Jest / Mocha / Karma</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="mb-5">
+      <div class="card p-4">
+        <h3 class="fw-bold mb-4"><i class="fas fa-briefcase text-primary me-2"></i>Professional Experience</h3>
+        
+        <div class="timeline-item">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <h5 class="fw-bold mb-0">Technical Manager — Accolite Digital Inc.</h5>
+            <span class="badge bg-primary">Jan 2025 - Present</span>
+          </div>
+          <p class="text-muted small">Hyderabad, India / International Delivery</p>
+          <ul>
+            <li><strong>REXUS AI:</strong> Architecting an AI-powered incident management platform using GPT-5, FastAPI, PostgreSQL, and Redis with enterprise multi-agent workflows.</li>
+            <li>Directing a 16-person full-stack engineering team supporting a next-generation POS system for 3,000+ retail outlets.</li>
+            <li>Improved delivery velocity by 20% and SDLC efficiency by 80% through enhanced CI/CD pipelines and engineering controls.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <h5 class="fw-bold mb-0">Associate Technical Delivery Manager / Lead — Accolite Digital</h5>
+            <span class="badge bg-secondary">Jul 2022 - Dec 2024</span>
+          </div>
+          <p class="text-muted small">Hyderabad, India / US Onsite Assignment</p>
+          <ul>
+            <li>Managed high-volume retail platform execution using React, Next.js, Node.js, GraphQL, and SQL Server.</li>
+            <li>Synchronized release management, sprint execution, and technical dependencies with US stakeholders.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <h5 class="fw-bold mb-0">Technical Lead / System Analyst — ValueLabs</h5>
+            <span class="badge bg-secondary">Sep 2019 - Jul 2022</span>
+          </div>
+          <p class="text-muted small">Hyderabad, India</p>
+          <ul>
+            <li>Achieved 100% unit test coverage for core modules via TDD (Mocha, Karma, Istanbul).</li>
+            <li>Delivered compliance-focused, accessible web platforms for healthcare clients like <strong>WebMD</strong> and <strong>Eli Lilly</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <h5 class="fw-bold mb-0">Senior Front-End Developer — ITC Infotech</h5>
+            <span class="badge bg-secondary">Nov 2017 - Sep 2019</span>
+          </div>
+          <p class="text-muted small">Gurugram, India</p>
+          <ul>
+            <li>Built investment-advisory platform workflows for <strong>Fidelity International</strong> (GIA, ISA, SIPP products).</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <h5 class="fw-bold mb-0">Front-End Developer — Xebia IT Architects</h5>
+            <span class="badge bg-secondary">Jun 2016 - Nov 2017</span>
+          </div>
+          <p class="text-muted small">Gurugram, India</p>
+          <ul>
+            <li>Redesigned the primary web platform for <strong>SpiceJet</strong> and engineered enterprise resource systems for <strong>McKinsey & Company</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item mb-0">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <h5 class="fw-bold mb-0">Front-End Developer — Jaarvis Technologies</h5>
+            <span class="badge bg-secondary">Jun 2015 - May 2016</span>
+          </div>
+          <p class="text-muted small">Gurugram, India</p>
+          <ul>
+            <li>Built service-booking engines for <strong>CallFixie</strong> across India and Hong Kong markets.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card p-4 h-100">
+            <h4 class="fw-bold mb-3"><i class="fas fa-graduation-cap text-primary me-2"></i>Education</h4>
+            <h6 class="fw-bold">Bachelor of Technology (B.Tech) - CSE</h6>
+            <p class="text-muted mb-0">United College of Engineering and Research, Allahabad (UPTU)</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card p-4 h-100">
+            <h4 class="fw-bold mb-3"><i class="fas fa-certificate text-primary me-2"></i>Certifications</h4>
+            <ul class="mb-0 ps-3">
+              <li>AI Fluency: Framework & Foundations</li>
+              <li>Claude 101 & Claude Code 101</li>
+              <li>JavaScript Certification</li>
+              <li>The Coding Interview Bootcamp: Algorithms & DS</li>
+              <li>Core Java Certificate of Excellence</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-dark text-white-50 text-center py-4 mt-5">
+    <div class="container">
+      <p class="mb-0">&copy; 2026 Yogesh Srivastava. All rights reserved.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
